@@ -4,7 +4,11 @@ import { Note } from './Note/Note';
 
 const Workboard = () => {
     return (
-        <SimpleGrid minChildWidth={250} columns={4} p='15px' spacing='15px'>
+        <SimpleGrid
+            p='15px'
+            columns={4}
+            spacing='15px'
+            minChildWidth={250}>
             <Note
                 title={'Take a shower'}
                 content={`Lorem ipsum dolor sit amet consectetur adipisicing elit. 
