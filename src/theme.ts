@@ -11,13 +11,8 @@ const fonts = {
 }
 
 const styles = {
-	body: {
-		padding: 0,
-		margin: 0
-	},
-	heading: {
-		padding: 0,
-	}
+	body: { padding: 0, margin: 0 },
+	heading: { padding: 0 }
 } 
 
 const theme = extendTheme({

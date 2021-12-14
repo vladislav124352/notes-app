@@ -10,23 +10,23 @@ export const GoHome = () => {
     return isCollapseBreakpoint ? (
         <Link href='/' aria-label='Go home' borderRadius='full'>
             <Image
-                borderRadius='full'
                 boxSize='40px'
                 src={NotesAppIcon}
+                borderRadius='full'
                 alt='Notes app logo' />
         </Link>
     ) : (
         <LinkBox rounded='md'>
             <Grid templateColumns='40px 1fr' gap='15px'>
                 <Image
-                    borderRadius='full'
                     boxSize='40px'
                     src={NotesAppIcon}
+                    borderRadius='full'
                     alt='Notes app logo' />
                 <Box
                     d='flex'
-                    alignItems='center'
-                    display='flex'>
+                    display='flex'
+                    alignItems='center'>
                     <LinkOverlay href='/' aria-label='Go home'>
                         <Heading h='100%' as='h1' fontSize='26px'>
                             Best Notes

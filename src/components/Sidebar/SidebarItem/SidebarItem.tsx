@@ -17,14 +17,14 @@ export const SidebarItem: FC<Props> = ({ Icon, title, isCollapse }) => {
             {isCollapse ? (
                 <Tooltip
                     hasArrow
-                    placement='right'
                     gutter={10}
-                    label={title}>
+                    label={title}
+                    placement='right'>
                     <Button
                         w='100%'
                         d='flex'
-                        justifyContent='center'
-                        alignItems='center'>
+                        alignItems='center'
+                        justifyContent='center'>
                         <Icon />
                     </Button>
                 </Tooltip>
@@ -32,9 +32,9 @@ export const SidebarItem: FC<Props> = ({ Icon, title, isCollapse }) => {
                 <Button
                     w='100%'
                     d='flex'
-                    justifyContent='flex-start'
                     alignItems='center'
-                    flexDirection='row'>
+                    flexDirection='row'
+                    justifyContent='flex-start'>
                     <Icon mr='10px' />
                     <Text>{title}</Text>
                 </Button>

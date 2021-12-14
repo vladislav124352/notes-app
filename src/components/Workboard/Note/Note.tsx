@@ -15,8 +15,8 @@ export const Note: FC<Props> = ({ title = 'Untitled', content = '', isEmpty }) =
             px='15px'
             width='300px'
             height='300px'
-            bgColor='rgb(237, 242, 247)'
-            borderRadius='5px'>
+            borderRadius='5px'
+            bgColor='rgb(237, 242, 247)'>
             <AddIcon />
         </Button>
     ) : (
