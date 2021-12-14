@@ -1,13 +1,25 @@
-import { Box, Text } from '@chakra-ui/react'
+import { AddIcon } from '@chakra-ui/icons'
+import { Box, Button, Text } from '@chakra-ui/react'
 import React, { FC } from 'react'
 
 type Props = {
-    title: string;
-    content: string;
+    title?: string;
+    content?: string;
+    isEmpty?: boolean;
 }
 
-export const Note: FC<Props> = ({ title, content }) => {
-    return (
+export const Note: FC<Props> = ({ title = 'Untitled', content = '', isEmpty }) => {
+    return isEmpty ? (
+        <Button
+            py='10px'
+            px='15px'
+            width='300px'
+            height='300px'
+            bgColor='rgb(237, 242, 247)'
+            borderRadius='5px'>
+            <AddIcon />
+        </Button>
+    ) : (
         <Box
             py='10px'
             px='15px'

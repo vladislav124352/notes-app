@@ -74,8 +74,9 @@ const Workboard = () => {
             overflow='auto'
             minChildWidth={280}
             height='fit-content'
+            width='fit-content'
             maxHeight='100%'>
-            {notesList.length ? notesComponentlist : ''}
+            {notesList.length ? notesComponentlist : <Note isEmpty />}
         </SimpleGrid>
     )
 }
