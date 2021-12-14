@@ -17,7 +17,7 @@ const Header = () => {
 			px='15'
 			py='10px'
 			gap='15px'
-			boxShadow='base'
+			boxShadow='xs'
 			bgColor='#ffffff'
 			templateColumns={gridBreakpoint}>
 			<GoHome />
