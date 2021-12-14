@@ -10,7 +10,7 @@ const App = () => {
 
 	return (
 		<Grid
-			h='100vh'
+			height='100vh'
 			bgColor='#00000006'
 			templateColumns='1fr'
 			templateRows='60px 1fr'>

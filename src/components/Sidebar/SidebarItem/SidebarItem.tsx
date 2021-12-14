@@ -21,8 +21,8 @@ export const SidebarItem: FC<Props> = ({ Icon, title, isCollapse }) => {
                     label={title}
                     placement='right'>
                     <Button
-                        w='100%'
-                        d='flex'
+                        width='100%'
+                        display='flex'
                         alignItems='center'
                         justifyContent='center'>
                         <Icon />
@@ -30,8 +30,8 @@ export const SidebarItem: FC<Props> = ({ Icon, title, isCollapse }) => {
                 </Tooltip>
             ) : (
                 <Button
-                    w='100%'
-                    d='flex'
+                    width='100%'
+                    display='flex'
                     alignItems='center'
                     flexDirection='row'
                     justifyContent='flex-start'>

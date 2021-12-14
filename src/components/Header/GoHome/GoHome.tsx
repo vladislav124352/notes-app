@@ -12,7 +12,6 @@ export const GoHome = () => {
             <Image
                 boxSize='40px'
                 src={NotesAppIcon}
-                borderRadius='full'
                 alt='Notes app logo' />
         </Link>
     ) : (
@@ -21,14 +20,12 @@ export const GoHome = () => {
                 <Image
                     boxSize='40px'
                     src={NotesAppIcon}
-                    borderRadius='full'
                     alt='Notes app logo' />
                 <Box
-                    d='flex'
                     display='flex'
                     alignItems='center'>
                     <LinkOverlay href='/' aria-label='Go home'>
-                        <Heading h='100%' as='h1' fontSize='26px'>
+                        <Heading height='100%' as='h1' fontSize='26px'>
                             Best Notes
                         </Heading>
                     </LinkOverlay>

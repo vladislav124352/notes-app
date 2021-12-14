@@ -15,7 +15,7 @@ export const Note: FC<Props> = ({ title = 'Untitled', content = '', isEmpty }) =
             px='15px'
             width='300px'
             height='300px'
-            borderRadius='5px'
+            borderRadius='md'
             bgColor='rgb(237, 242, 247)'>
             <AddIcon />
         </Button>
@@ -27,7 +27,7 @@ export const Note: FC<Props> = ({ title = 'Untitled', content = '', isEmpty }) =
             height='280px'
             boxShadow='base'
             bgColor='#ffffff'
-            borderRadius='5px'>
+            borderRadius='md'>
             <Text fontSize='20px'>{title}</Text>
             <Text>{content}</Text>
         </Box>
