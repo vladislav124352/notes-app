@@ -83,7 +83,7 @@ const Workboard = () => {
             columns={4}
             spacing='15px'
             overflow='auto'
-            minChildWidth={280}
+            minChildWidth={285}
             height='fit-content'
             maxHeight='100%'>
             {notesList.length ? notesComponentlist : <Note isEmpty />}
