@@ -8,6 +8,7 @@ const Workboard = () => {
             p='15px'
             columns={4}
             spacing='15px'
+            overflow='auto'
             minChildWidth={250}>
             <Note
                 title={'Take a shower'}

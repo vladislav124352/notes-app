@@ -13,11 +13,13 @@ const Header = () => {
 
 	return (
 		<Grid
-			as='header'
-			px='15'
+			px='15px'
 			py='10px'
 			gap='15px'
+			as='header'
+			width='100%'
 			boxShadow='xs'
+			position='fixed'
 			bgColor='#ffffff'
 			templateColumns={gridBreakpoint}>
 			<GoHome />

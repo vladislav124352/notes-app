@@ -15,7 +15,11 @@ const App = () => {
 			templateColumns='1fr'
 			templateRows='60px 1fr'>
 			<Header />
-			<Grid as='main' templateColumns={sidebarWidthBreakpoint}>
+			<Grid
+				height='100vh'
+				pt='60px'
+				as='main'
+				templateColumns={sidebarWidthBreakpoint}>
 				<Sidebar />
 				<Workboard />
 			</Grid>
