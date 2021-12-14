@@ -17,7 +17,8 @@ const Header = () => {
 			px='15'
 			py='10px'
 			gap='15px'
-			boxShadow='md'
+			boxShadow='base'
+			bgColor='#ffffff'
 			templateColumns={gridBreakpoint}>
 			<GoHome />
 			<SearchInput />

@@ -9,7 +9,7 @@ const App = () => {
 	const sidebarWidthBreakpoint = useBreakpointValue({ base: '70px 1fr', lg: '235px 1fr' })
 
 	return (
-		<Grid templateColumns='1fr' templateRows='60px 1fr' h='100vh'>
+		<Grid bgColor='#00000006' templateColumns='1fr' templateRows='60px 1fr' h='100vh'>
 			<Header />
 			<Grid as='main' templateColumns={sidebarWidthBreakpoint}>
 				<Sidebar />

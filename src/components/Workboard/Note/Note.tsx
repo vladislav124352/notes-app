@@ -14,6 +14,7 @@ export const Note: FC<Props> = ({ title, content }) => {
             width='100%'
             height='280px'
             boxShadow='base'
+            bgColor='#ffffff'
             borderRadius='5px'>
             <Text fontSize='20px'>{title}</Text>
             <Text>{content}</Text>
