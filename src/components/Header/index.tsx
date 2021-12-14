@@ -13,6 +13,7 @@ const Header = () => {
 
 	return (
 		<Grid
+			as='header'
 			px='15'
 			py='10px'
 			gap='15px'
