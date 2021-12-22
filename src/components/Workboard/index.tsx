@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
 import { getNotesSelector } from '../../store/reducers/notesReducer/selectors/getNotesSelector';
 import { fetchNotes } from '../../store/reducers/notesReducer/ActionCreators';
 import { useBreakpointValue } from '@chakra-ui/react';
-import { EmptyNote } from './Note/EmptyNote';
+import { EmptyNote } from './EmptyNote/EmptyNote';
 
 const Workboard = () => {
     const dispatch = useAppDispatch();
