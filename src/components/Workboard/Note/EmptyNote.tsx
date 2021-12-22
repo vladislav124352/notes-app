@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../hooks/redux/redux';
 import { createNote } from '../../../store/reducers/notesReducer/ActionCreators';
-import { CreateNoteModal } from '../createNoteModal/CreateNoteModal';
+import { CreateNoteModal } from '../CreateNoteModal/CreateNoteModal';
 
 export const EmptyNote = () => {
     const dispatch = useAppDispatch()
