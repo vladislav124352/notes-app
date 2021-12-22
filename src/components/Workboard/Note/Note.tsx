@@ -1,35 +1,62 @@
-import { AddIcon } from '@chakra-ui/icons'
-import { Box, Button, Text } from '@chakra-ui/react'
+import { Box, GridItem, Text, useBreakpointValue } from '@chakra-ui/react'
 import React, { FC } from 'react'
+import { useFormatedDate } from '../../../hooks/components/useFormatedDate';
 
 type Props = {
     title?: string;
     content?: string;
-    isEmpty?: boolean;
+    createdDate?: string;
 }
 
-export const Note: FC<Props> = ({ title = 'Untitled', content = '', isEmpty }) => {
-    return isEmpty ? (
-        <Button
-            py='10px'
-            px='15px'
-            width='300px'
-            height='300px'
-            borderRadius='md'
-            bgColor='rgb(237, 242, 247)'>
-            <AddIcon />
-        </Button>
-    ) : (
-        <Box
-            py='10px'
-            px='15px'
+export const Note: FC<Props> = ({ title, content, createdDate = '' }) => {
+    const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
+    const formatedDate = useFormatedDate(createdDate);
+
+    return (
+        <GridItem
             width='100%'
+            display='flex'
             height='280px'
+            paddingY='15px'
+            paddingX='20px'
             boxShadow='base'
             bgColor='#ffffff'
-            borderRadius='md'>
-            <Text fontSize='20px'>{title}</Text>
-            <Text>{content}</Text>
-        </Box>
+            borderRadius='md'
+            flexDirection='column'
+            alignItems='flex-start'
+            justifyContent='space-between'
+            maxWidth={maxWidthBreakpoint}>
+            <Box maxWidth='100%'>
+                <Text
+                    sx={{
+                        '-webkit-line-clamp': '2',
+                        '-webkit-box-orient': 'vertical'
+                    }}
+                    fontSize='22px'
+                    lineHeight={1.3}
+                    fontWeight='600'
+                    overflow='hidden'
+                    marginBottom='10px'
+                    display='-webkit-box'>
+                    {title || 'Untitled'}
+                </Text>
+                <Text
+                    sx={{
+                        '-webkit-line-clamp': '5',
+                        '-webkit-box-orient': 'vertical'
+                    }}
+                    wordBreak='break-word'
+                    display='-webkit-box'
+                    overflow='hidden'
+                    whiteSpace='break-spaces'>
+                    {content || '***'}
+                </Text>
+            </Box>
+            <Text
+                fontSize='14px'
+                color='#818c8f'>
+                {formatedDate}
+            </Text>
+        </GridItem>
     )
 }

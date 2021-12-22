@@ -1,93 +1,46 @@
-import React from 'react'
-import { SimpleGrid } from '@chakra-ui/layout';
+import { useEffect } from 'react'
+import { Grid, Container, Box } from '@chakra-ui/layout';
 import { Note } from './Note/Note';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
+import { getNotesSelector } from '../../store/reducers/notesReducer/selectors/getNotesSelector';
+import { fetchNotes } from '../../store/reducers/notesReducer/ActionCreators';
+import { useBreakpointValue } from '@chakra-ui/react';
+import { EmptyNote } from './Note/EmptyNote';
 
 const Workboard = () => {
-    const notesList: Array<{ title: string; content: string; isEmpty: boolean, id: number }> = [
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 0
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 1
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 2
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 3
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 4
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 5
-        },
-        {
-            title: 'Go to the university at 10:30am',
-            content: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Doloribus tenetur officiis pariatur veniam sunt, magnam ipsum 
-            voluptates reprehenderit, alias error ad dolorum dolor repellat 
-            inventore quas architecto nulla officia quia.`,
-            isEmpty: false,
-            id: 6
-        }
-    ]
+    const dispatch = useAppDispatch();
+    const notes = useAppSelector(getNotesSelector);
+    const isCenterBreakpoint = useBreakpointValue({ base: 'center', lg: 'flex-start' });
 
-    const notesComponentlist = notesList.map(({ title, content, isEmpty, id }) => {
+    useEffect(() => {
+        dispatch(fetchNotes())
+    }, [dispatch])
+
+    const notesComponentList = notes.map(({ title, content, createdDate, id }) => {
         return <Note
-            key={`Note_id:${id}`}
+            key={id}
             title={title}
             content={content}
-            isEmpty={isEmpty} />
+            createdDate={createdDate} />
     })
 
     return (
-        <SimpleGrid
-            p='15px'
-            columns={4}
-            spacing='15px'
-            overflow='auto'
-            maxHeight='100%'
-            minChildWidth={285}
-            height='fit-content'>
-            {notesList.length ? notesComponentlist : <Note isEmpty />}
-        </SimpleGrid>
+        <Box overflow='auto' width='100%' bgColor='#dde2e6'>
+            <Container maxW='container.xl'>
+                <Grid
+                    as='ul'
+                    gap='15px'
+                    width='100%'
+                    padding='15px'
+                    overflow='auto'
+                    paddingBottom='50px'
+                    justifyItems={isCenterBreakpoint}
+                    gridTemplateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
+                    {notesComponentList}
+                    <EmptyNote />
+                </Grid>
+            </Container>
+        </Box>
     )
 }
 

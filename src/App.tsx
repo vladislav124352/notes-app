@@ -1,29 +1,21 @@
 import React from 'react';
-import { Grid } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
 import Workboard from './components/Workboard';
-import { useBreakpointValue } from '@chakra-ui/media-query';
 
 const App = () => {
-	const sidebarWidthBreakpoint = useBreakpointValue({ base: '70px 1fr', lg: '235px 1fr' })
-
 	return (
-		<Grid
-			height='100vh'
-			bgColor='#00000006'
-			templateColumns='1fr'
-			templateRows='60px 1fr'>
+		<Box>
 			<Header />
-			<Grid
-				pt='60px'
+			<Box
 				as='main'
+				display='flex'
 				height='100vh'
-				templateColumns={sidebarWidthBreakpoint}>
-				<Sidebar />
+				paddingTop='60px'
+				justifyContent='center'>
 				<Workboard />
-			</Grid>
-		</Grid>
+			</Box>
+		</Box>
 	);
 }
 

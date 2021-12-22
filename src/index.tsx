@@ -1,15 +1,19 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import '@fontsource/inter';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './App';
+import { store } from './store/store';
 import theme from './theme';
+import '@fontsource/inter';
 
 const AppComponent = () => {
 	return (
 		<StrictMode>
 			<ChakraProvider resetCSS theme={theme}>
-				<App />
+				<Provider store={store}>
+					<App />
+				</Provider>
 			</ChakraProvider>
 		</StrictMode >
 	)
