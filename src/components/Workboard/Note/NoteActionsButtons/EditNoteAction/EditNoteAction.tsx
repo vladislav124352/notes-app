@@ -28,7 +28,7 @@ export const EditNoteAction: FC<Props> = ({ note }) => {
         <IconButton
             size='sm'
             onClick={onOpen}
-            aria-label='Edit note'>
+            aria-label='Go to edit note'>
             <EditIcon />
         </IconButton>
         <EditorNoteModal

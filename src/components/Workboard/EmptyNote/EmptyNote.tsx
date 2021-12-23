@@ -33,7 +33,8 @@ export const EmptyNote = () => {
             <Button
                 width='100%'
                 height='100%'
-                onClick={onOpen}>
+                onClick={onOpen}
+                aria-label='Go to create note'>
                 <AddIcon />
             </Button>
             <EditorNoteModal

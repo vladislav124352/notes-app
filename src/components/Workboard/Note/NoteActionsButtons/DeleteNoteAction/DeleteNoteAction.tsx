@@ -22,7 +22,7 @@ export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
         <IconButton
             size='sm'
             onClick={onOpen}
-            aria-label='Delete note'>
+            aria-label='Go to delete note'>
             <DeleteIcon />
         </IconButton>
         <DeleteNoteModal

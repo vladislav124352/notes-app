@@ -24,11 +24,9 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({
     const buttonText = initialValues.title ? 'Edit note' : 'Create note';
 
     return (
-        <Modal isOpen={isOpen} onClose={onCancel}>
+        <Modal isCentered isOpen={isOpen} onClose={onCancel}>
             <ModalOverlay />
-            <ModalContent
-                margin='auto 20px'
-                heigth='400px'>
+            <ModalContent margin='20px'>
                 <Formik initialValues={initialValues} onSubmit={onClose}>
                     {({ handleSubmit, values }) => (
                         <Box as='form' onSubmit={handleSubmit as any}>
@@ -36,6 +34,7 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({
                                 <TextareaControl
                                     isRequired
                                     name='title'
+                                    aria-label='Note title'
                                     textareaProps={{
                                         minHeight: '50px',
                                         resize: 'none',
@@ -48,6 +47,7 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({
 
                                 <TextareaControl
                                     name='content'
+                                    aria-label='Content title'
                                     textareaProps={{
                                         minHeight: '150px',
                                         resize: 'none',
@@ -61,9 +61,10 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({
 
                             <ModalFooter>
                                 <SubmitButton
-                                    disabled={!values.title}
                                     width='100%'
-                                    colorScheme='green'>
+                                    colorScheme='green'
+                                    aria-label={buttonText}
+                                    disabled={!values.title}>
                                     {buttonText}
                                 </SubmitButton>
                             </ModalFooter>
