@@ -1,4 +1,13 @@
-import { Button, ButtonGroup, Modal, ModalBody, ModalContent, ModalFooter, ModalOverlay, Text } from '@chakra-ui/react'
+import {
+    Modal,
+    Button,
+    ModalBody,
+    ModalFooter,
+    ButtonGroup,
+    ModalHeader,
+    ModalContent,
+    ModalOverlay
+} from '@chakra-ui/react'
 import React, { FC } from 'react'
 
 interface Props {
@@ -9,24 +18,26 @@ interface Props {
 
 export const DeleteNoteModal: FC<Props> = ({ isOpen, onDelete, onCancel }) => {
     return (
-        <Modal isOpen={isOpen} onClose={onCancel}>
+        <Modal isCentered isOpen={isOpen} onClose={onCancel}>
             <ModalOverlay />
-            <ModalContent
-                margin='auto 20px'
-                heigth='400px'>
-                <ModalBody marginTop='20px'>
-                    <Text>Are you sure delete this note?</Text>
+            <ModalContent margin='20px'>
+                <ModalBody>
+                    <ModalHeader>
+                        Are you sure you want to delete this note?
+                    </ModalHeader>
                 </ModalBody>
                 <ModalFooter>
                     <ButtonGroup>
                         <Button
+                            colorScheme='red'
                             onClick={onDelete}
-                            colorScheme='red'>
+                            aria-label='Delete'>
                             Delete
                         </Button>
                         <Button
+                            colorScheme='gray'
                             onClick={onCancel}
-                            colorScheme='gray'>
+                            aria-label='Cancel'>
                             Cancel
                         </Button>
                     </ButtonGroup>
