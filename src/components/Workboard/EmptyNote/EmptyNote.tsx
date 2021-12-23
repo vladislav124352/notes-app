@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../hooks/redux/redux';
 import { createNote } from '../../../store/reducers/notesReducer/ActionCreators';
-import { CreateNoteModal } from '../CreateNoteModal/CreateNoteModal';
+import { EditorNoteModal } from '../EditorNoteModal/EditorNoteModal';
 
 export const EmptyNote = () => {
     const dispatch = useAppDispatch()
@@ -36,10 +36,11 @@ export const EmptyNote = () => {
                 onClick={onOpen}>
                 <AddIcon />
             </Button>
-            <CreateNoteModal
+            <EditorNoteModal
                 isOpen={isOpen}
                 onClose={onSubmit}
-                onCancel={onClose} />
+                onCancel={onClose}
+                initialValues={{ title: '', content: '' }} />
         </GridItem>
     )
 }

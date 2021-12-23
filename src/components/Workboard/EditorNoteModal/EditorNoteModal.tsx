@@ -10,19 +10,9 @@ import { Formik } from 'formik';
 import { SubmitButton, TextareaControl } from 'formik-chakra-ui';
 import { FC } from 'react'
 import { useAutoResize } from '../../../hooks/components/useAutoResize';
+import { IEditorNoteModal } from './models';
 
-interface Props {
-    isOpen: boolean;
-    onClose: (...args: any[]) => void;
-    onCancel: () => void;
-}
-
-const initialValues = {
-    title: '',
-    content: ''
-}
-
-export const CreateNoteModal: FC<Props> = ({ isOpen, onCancel, onClose }) => {
+export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClose, initialValues }) => {
     const autoResize = useAutoResize();
 
     return (
