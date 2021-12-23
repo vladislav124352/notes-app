@@ -1,5 +1,5 @@
 export type INote = {
-    id: string;
+    id: number;
     title: string;
     content: string;
     createdDate: string;

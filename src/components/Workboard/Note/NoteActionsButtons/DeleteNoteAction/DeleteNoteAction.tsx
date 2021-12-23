@@ -6,7 +6,7 @@ import { deleteNote } from '../../../../../store/reducers/notesReducer/ActionCre
 import { DeleteNoteModal } from '../../../DeleteNoteModal/DeleteNoteModal'
 
 interface Props {
-    noteId: string;
+    noteId: number;
 }
 
 export const DeleteNoteAction: FC<Props> = ({ noteId }) => {

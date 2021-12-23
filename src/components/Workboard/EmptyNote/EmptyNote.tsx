@@ -16,7 +16,7 @@ export const EmptyNote = () => {
 
     const onSubmit = (values: any) => {
         dispatch(createNote({
-            id: `Note_#${Date.now()}`,
+            id: Math.ceil(Date.now() * 2 / Math.random()),
             createdDate: Date.now(),
             ...values
         }))

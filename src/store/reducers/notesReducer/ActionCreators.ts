@@ -23,7 +23,7 @@ export const createNote = (note: INote) => async (dispatch: AppDispatch) => {
     dispatch(fetchNotes())
 }
 
-export const deleteNote = (id: string) => async (dispatch: AppDispatch) => {
+export const deleteNote = (id: number) => async (dispatch: AppDispatch) => {
     const request = localStorage.getItem('notes');
     if (request) {
         const notes: INote[] = JSON.parse(request);

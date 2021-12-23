@@ -19,9 +19,9 @@ const Workboard = () => {
     const notesComponentList = notes.map(({ title, content, createdDate, id }) => {
         return <Note
             id={id}
-            key={id}
             title={title}
             content={content}
+            key={`Note#_${id}`}
             createdDate={createdDate} />
     })
 
