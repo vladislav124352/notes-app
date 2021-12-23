@@ -1,10 +1,7 @@
 import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalBody,
-    ModalFooter,
-    Box
+    Modal, ModalOverlay,
+    ModalContent, ModalBody,
+    ModalFooter, Box
 } from '@chakra-ui/react'
 import { Formik } from 'formik';
 import { SubmitButton, TextareaControl } from 'formik-chakra-ui';
@@ -14,6 +11,7 @@ import { IEditorNoteModal } from './models';
 
 export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClose, initialValues }) => {
     const autoResize = useAutoResize();
+    const buttonText = initialValues.title ? 'Edit note' : 'Create note';
 
     return (
         <Modal isOpen={isOpen} onClose={onCancel}>
@@ -22,10 +20,11 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClos
                 margin='auto 20px'
                 heigth='400px'>
                 <Formik initialValues={initialValues} onSubmit={onClose}>
-                    {({ handleSubmit }) => (
+                    {({ handleSubmit, values }) => (
                         <Box as='form' onSubmit={handleSubmit as any}>
                             <ModalBody marginTop='20px'>
                                 <TextareaControl
+                                    isRequired
                                     name='title'
                                     textareaProps={{
                                         minHeight: '50px',
@@ -36,12 +35,12 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClos
                                         onInput: autoResize,
                                         placeholder: 'Title ...'
                                     }} />
+
                                 <TextareaControl
                                     name='content'
                                     textareaProps={{
                                         minHeight: '150px',
                                         resize: 'none',
-                                        height: '100%',
                                         fontSize: '18px',
                                         overflow: 'hidden',
                                         variant: 'outlined',
@@ -49,11 +48,13 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClos
                                         placeholder: 'Do something ...'
                                     }} />
                             </ModalBody>
+
                             <ModalFooter>
                                 <SubmitButton
+                                    disabled={!values.title}
                                     width='100%'
                                     colorScheme='green'>
-                                    Create note
+                                    {buttonText}
                                 </SubmitButton>
                             </ModalFooter>
                         </Box>

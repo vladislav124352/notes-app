@@ -18,6 +18,7 @@ const Workboard = () => {
 
     const notesComponentList = notes.map(({ title, content, createdDate, id }) => {
         return <Note
+            id={id}
             key={id}
             title={title}
             content={content}
@@ -25,7 +26,10 @@ const Workboard = () => {
     })
 
     return (
-        <Box overflow='auto' width='100%' bgColor='#dde2e6'>
+        <Box
+            width='100%'
+            overflow='auto'
+            bgColor='#dde2e6'>
             <Container maxW='container.xl'>
                 <Grid
                     as='ul'
