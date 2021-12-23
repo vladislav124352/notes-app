@@ -7,9 +7,19 @@ import { Formik } from 'formik';
 import { SubmitButton, TextareaControl } from 'formik-chakra-ui';
 import { FC } from 'react'
 import { useAutoResize } from '../../../hooks/components/useAutoResize';
-import { IEditorNoteModal } from './models';
+import { IEditorNoteModal, IEditorNoteValues } from './models';
 
-export const EditorNoteModal: FC<IEditorNoteModal> = ({ isOpen, onCancel, onClose, initialValues }) => {
+const defaultValues: IEditorNoteValues = {
+    title: '',
+    content: ''
+}
+
+export const EditorNoteModal: FC<IEditorNoteModal> = ({
+    isOpen,
+    onCancel,
+    onClose,
+    initialValues = defaultValues
+}) => {
     const autoResize = useAutoResize();
     const buttonText = initialValues.title ? 'Edit note' : 'Create note';
 

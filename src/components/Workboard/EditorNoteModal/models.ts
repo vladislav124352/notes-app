@@ -7,5 +7,5 @@ export interface IEditorNoteModal {
     isOpen: boolean;
     onClose: (...args: any[]) => void;
     onCancel: () => void;
-    initialValues: IEditorNoteValues;
+    initialValues?: IEditorNoteValues;
 }

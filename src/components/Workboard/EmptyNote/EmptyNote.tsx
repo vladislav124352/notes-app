@@ -39,8 +39,7 @@ export const EmptyNote = () => {
             <EditorNoteModal
                 isOpen={isOpen}
                 onClose={onSubmit}
-                onCancel={onClose}
-                initialValues={{ title: '', content: '' }} />
+                onCancel={onClose} />
         </GridItem>
     )
 }
