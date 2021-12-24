@@ -20,7 +20,7 @@ export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
         toast({
             title: 'Note deleted',
             status: 'info',
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
         })
     }

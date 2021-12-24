@@ -26,7 +26,7 @@ export const EditNoteAction: FC<Props> = ({ note }) => {
         toast({
             title: 'Note changed',
             status: 'info',
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
         })
     }

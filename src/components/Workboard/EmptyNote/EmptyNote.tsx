@@ -27,7 +27,7 @@ export const EmptyNote = () => {
         toast({
             title: 'Note created',
             status: 'success',
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
         })
     }
