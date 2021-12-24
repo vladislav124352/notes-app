@@ -8,17 +8,17 @@ import { ControlPanel } from './ControlPanel/ControlPanel';
 export const Header = () => {
 	const gridBreakpoint = useBreakpointValue({
 		base: '40px 1fr 90px',
-		lg: '220px 5fr 90px'
+		lg: '220px 4fr 90px'
 	});
 
 	return (
 		<Grid
-			px='15px'
-			py='10px'
 			gap='15px'
 			as='header'
 			width='100%'
 			boxShadow='xs'
+			paddingX='15px'
+			paddingY='10px'
 			position='fixed'
 			bgColor='#ffffff'
 			templateColumns={gridBreakpoint}>
