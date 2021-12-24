@@ -5,7 +5,7 @@ import { GoHome } from './GoHome/GoHome';
 import { SearchInput } from './SearchInput/SearchInput';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 
-const Header = () => {
+export const Header = () => {
 	const gridBreakpoint = useBreakpointValue({
 		base: '40px 1fr 90px',
 		lg: '220px 5fr 90px'
@@ -28,5 +28,3 @@ const Header = () => {
 		</Grid>
 	)
 }
-
-export default Header;

@@ -2,7 +2,7 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import { IconButton, useDisclosure, useToast } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import { useAppDispatch } from '../../../../../hooks/redux/redux'
-import { deleteNote } from '../../../../../store/reducers/notesReducer/ActionCreators'
+import { deleteNote } from '../../../../../store/reducers/workboardReducer/ActionCreators'
 import { DeleteNoteModal } from '../../../DeleteNoteModal/DeleteNoteModal'
 
 interface Props {

@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from '../../../hooks/redux/redux';
 import { EditorNoteModal } from '../EditorNoteModal/EditorNoteModal';
 import { generateRandomId } from '../../../hooks/tools/generateRandomId';
-import { createNote } from '../../../store/reducers/notesReducer/ActionCreators';
+import { createNote } from '../../../store/reducers/workboardReducer/ActionCreators';
 
 export const EmptyNote = () => {
     const dispatch = useAppDispatch()

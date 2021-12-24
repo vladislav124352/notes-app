@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@chakra-ui/layout';
-import Header from './components/Header';
-import Workboard from './components/Workboard';
+import { Header } from './components/Header';
+import { Workboard } from './components/Workboard';
 
 const App = () => {
 	return (

@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import { Grid, Container, Box } from '@chakra-ui/layout';
 import { Note } from './Note/Note';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
-import { getNotesSelector } from '../../store/reducers/notesReducer/selectors/getNotesSelector';
-import { fetchNotes } from '../../store/reducers/notesReducer/ActionCreators';
 import { useBreakpointValue } from '@chakra-ui/react';
 import { EmptyNote } from './EmptyNote/EmptyNote';
+import { fetchNotes } from '../../store/reducers/workboardReducer/ActionCreators';
+import { getNotesSelector } from '../../store/reducers/workboardReducer/selectors/getNotesSelector';
 
-const Workboard = () => {
+export const Workboard = () => {
     const dispatch = useAppDispatch();
     const notes = useAppSelector(getNotesSelector);
     const isCenterBreakpoint = useBreakpointValue({ base: 'center', lg: 'flex-start' });
@@ -47,5 +47,3 @@ const Workboard = () => {
         </Box>
     )
 }
-
-export default Workboard;

@@ -1,4 +1,4 @@
-import { INote } from '../../../store/reducers/notesReducer/models/INote';
+import { INote } from '../../../store/reducers/workboardReducer/models/INote';
 
 export const useGetNoteById = (id: number) => {
 	const defaultNoteObject: INote = { title: '', content: '', id: 0, createdDate: 0 };

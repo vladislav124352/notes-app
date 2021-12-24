@@ -1,10 +1,10 @@
 import { Box, ButtonGroup, GridItem, useBreakpointValue } from '@chakra-ui/react';
 import React, { FC } from 'react';
-import { INote } from '../../../store/reducers/notesReducer/models/INote';
+import { INote } from '../../../store/reducers/workboardReducer/models/INote';
 import { DeleteNoteAction } from './NoteActionsButtons/DeleteNoteAction/DeleteNoteAction';
 import { EditNoteAction } from './NoteActionsButtons/EditNoteAction/EditNoteAction';
 import { NoteContent } from './NoteContent/NoteContent';
-import { NoteCreatedDate } from './NoteCreatedDate/NoteCreatedDate';
+import { NoteCreatedDate } from './NoteCreationDate/NoteCreationDate';
 import { NoteTitle } from './NoteTitle/NoteTitle';
 
 type Props = INote;
