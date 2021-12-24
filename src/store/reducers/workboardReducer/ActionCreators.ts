@@ -3,11 +3,25 @@ import { AppDispatch } from '../../store';
 import { EditableNoteValues, INote } from './models/INote';
 import { workboardReducer } from './reducer';
 
-export const fetchNotes = () => {
+export const fetchNotes = (fetchParameter?: string) => {
 	return async (dispatch: AppDispatch) => {
 		const request = localStorage.getItem('notes');
 		if (request) {
-			dispatch(workboardReducer.actions.notesFetchingSuccess(request));
+			let notes: INote[] = JSON.parse(request);
+
+			if (fetchParameter) {
+				const loweredFetchParameter = fetchParameter.toLocaleLowerCase();
+				const newNotes = notes.filter((note) => {
+					const loweredNoteTitle = note.title.toLocaleLowerCase();
+					const loweredNoteContent = note.content.toLocaleLowerCase();
+					const includesOfNoteTitle = loweredNoteTitle.includes(loweredFetchParameter);
+					const includesOfNoteContent = loweredNoteContent.includes(loweredFetchParameter);
+					return includesOfNoteTitle || includesOfNoteContent;
+				});
+				notes = newNotes;
+			}
+
+			dispatch(workboardReducer.actions.notesFetchingSuccess(notes));
 		}
 	};
 };
@@ -31,6 +45,7 @@ export const createNote = (note: INote) => {
 export const deleteNote = (id: number) => {
 	return async (dispatch: AppDispatch) => {
 		const request = localStorage.getItem('notes');
+
 		if (request) {
 			const notes: INote[] = JSON.parse(request);
 			const newNotes = notes.filter((note) => note.id !== id);
@@ -44,6 +59,7 @@ export const deleteNote = (id: number) => {
 export const editeNote = (id: number, changes: EditableNoteValues) => {
 	return async (dispatch: AppDispatch) => {
 		const request = localStorage.getItem('notes');
+
 		if (request) {
 			const notes: INote[] = JSON.parse(request);
 			const note = getNoteById(id);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import { GoHome } from './GoHome/GoHome';
-import { SearchInput } from './SearchInput/SearchInput';
+import { SearchPanel } from './SearchPanel/SearchPanel';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 
 export const Header = () => {
@@ -23,7 +23,7 @@ export const Header = () => {
 			bgColor='#ffffff'
 			templateColumns={gridBreakpoint}>
 			<GoHome />
-			<SearchInput />
+			<SearchPanel />
 			<ControlPanel />
 		</Grid>
 	)
