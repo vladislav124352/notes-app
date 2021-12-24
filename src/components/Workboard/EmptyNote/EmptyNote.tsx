@@ -3,7 +3,8 @@ import {
     Button,
     GridItem,
     useBreakpointValue,
-    useDisclosure
+    useDisclosure,
+    useToast
 } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../hooks/redux/redux';
 import { EditorNoteModal } from '../EditorNoteModal/EditorNoteModal';
@@ -14,14 +15,21 @@ export const EmptyNote = () => {
     const dispatch = useAppDispatch()
     const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const toast = useToast();
 
     const onSubmit = (values: any) => {
         dispatch(createNote({
             id: generateRandomId(),
             createdDate: Date.now(),
             ...values
-        }))
-        onClose()
+        }));
+        onClose();
+        toast({
+            title: 'Note created',
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        })
     }
 
     return (
