@@ -22,6 +22,7 @@ export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
             status: 'info',
             duration: 2000,
             isClosable: true,
+            position: 'bottom-right'
         })
     }
 

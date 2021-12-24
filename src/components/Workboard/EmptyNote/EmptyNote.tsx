@@ -29,6 +29,7 @@ export const EmptyNote = () => {
             status: 'success',
             duration: 2000,
             isClosable: true,
+            position: 'bottom-right'
         })
     }
 

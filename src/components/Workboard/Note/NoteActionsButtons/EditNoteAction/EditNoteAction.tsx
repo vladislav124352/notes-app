@@ -24,7 +24,8 @@ export const EditNoteAction: FC<Props> = ({ noteId }) => {
             title: 'Note changed',
             status: 'info',
             duration: 2000,
-            isClosable: true
+            isClosable: true,
+            position: 'bottom-right'
         })
     }
 
