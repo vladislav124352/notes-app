@@ -6,8 +6,9 @@ import {
     useDisclosure
 } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../hooks/redux/redux';
-import { createNote } from '../../../store/reducers/notesReducer/ActionCreators';
 import { EditorNoteModal } from '../EditorNoteModal/EditorNoteModal';
+import { generateRandomId } from '../../../hooks/tools/generateRandomId';
+import { createNote } from '../../../store/reducers/notesReducer/ActionCreators';
 
 export const EmptyNote = () => {
     const dispatch = useAppDispatch()
@@ -16,7 +17,7 @@ export const EmptyNote = () => {
 
     const onSubmit = (values: any) => {
         dispatch(createNote({
-            id: Math.ceil(Date.now() * 2 / Math.random()),
+            id: generateRandomId(),
             createdDate: Date.now(),
             ...values
         }))
