@@ -6,7 +6,7 @@ interface Props {
     date: number;
 }
 
-export const NoteCreatedDate: FC<Props> = ({ date }) => {
+export const NoteCreationDate: FC<Props> = ({ date }) => {
     const formatedDate = useFormatedDate(date);
 
     return <Text

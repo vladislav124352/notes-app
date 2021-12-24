@@ -20,7 +20,7 @@ export const EmptyNote = () => {
     const onSubmit = (values: any) => {
         dispatch(createNote({
             id: generateRandomId(),
-            createdDate: Date.now(),
+            creationDate: Date.now(),
             ...values
         }));
         onClose();

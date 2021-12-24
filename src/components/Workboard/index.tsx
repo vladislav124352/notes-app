@@ -16,13 +16,13 @@ export const Workboard = () => {
         dispatch(fetchNotes())
     }, [dispatch])
 
-    const notesComponentList = notes.map(({ title, content, createdDate, id }) => {
+    const notesComponentList = notes.map(({ title, content, creationDate, id }) => {
         return <Note
             id={id}
             title={title}
             content={content}
             key={`Note#_${id}`}
-            createdDate={createdDate} />
+            creationDate={creationDate} />
     })
 
     return (

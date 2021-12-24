@@ -4,14 +4,14 @@ import { INote } from '../../../store/reducers/workboardReducer/models/INote';
 import { DeleteNoteAction } from './NoteActionsButtons/DeleteNoteAction/DeleteNoteAction';
 import { EditNoteAction } from './NoteActionsButtons/EditNoteAction/EditNoteAction';
 import { NoteContent } from './NoteContent/NoteContent';
-import { NoteCreatedDate } from './NoteCreationDate/NoteCreationDate';
+import { NoteCreationDate } from './NoteCreationDate/NoteCreationDate';
 import { NoteTitle } from './NoteTitle/NoteTitle';
 
 type Props = INote;
 
-export const Note: FC<Props> = ({ title, content, createdDate, id }) => {
+export const Note: FC<Props> = ({ title, content, creationDate, id }) => {
     const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
-    const note = { title, content, createdDate, id };
+    const note = { title, content, creationDate, id };
 
     return (
         <GridItem
@@ -36,7 +36,7 @@ export const Note: FC<Props> = ({ title, content, createdDate, id }) => {
                 display='flex'
                 alignItems='center'
                 justifyContent='space-between'>
-                <NoteCreatedDate date={createdDate} />
+                <NoteCreationDate date={creationDate} />
                 <ButtonGroup>
                     <EditNoteAction note={note} />
                     <DeleteNoteAction noteId={id} />

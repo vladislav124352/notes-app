@@ -20,7 +20,7 @@ export const EditNoteAction: FC<Props> = ({ note }) => {
         dispatch(editeNote({
             ...values,
             id: note.id,
-            createdDate: note.createdDate,
+            creationDate: note.creationDate,
         }));
         onClose();
         toast({
