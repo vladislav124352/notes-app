@@ -3,10 +3,10 @@ import { Formik } from 'formik'
 import { SubmitButton } from 'formik-chakra-ui'
 import React, { FC } from 'react'
 import { ContentTextarea } from '../ContentTextarea/ContentTextarea'
-import { INoteEditor } from '../models'
+import { IEditorNoteOption } from '../models'
 import { TitleTextarea } from '../TitleTextarea/TitleTextarea'
 
-export const NoteModal: FC<INoteEditor> = ({ isOpen, onSubmit, onClose, initialValues, isEditNote }) => {
+export const NoteModal: FC<IEditorNoteOption> = ({ isOpen, onSubmit, onClose, initialValues, isEditNote }) => {
     const buttonText = isEditNote ? 'Edit note' : 'Create note';
 
     return (

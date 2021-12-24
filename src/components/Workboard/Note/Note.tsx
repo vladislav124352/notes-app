@@ -7,11 +7,8 @@ import { NoteContent } from './NoteContent/NoteContent';
 import { NoteCreationDate } from './NoteCreationDate/NoteCreationDate';
 import { NoteTitle } from './NoteTitle/NoteTitle';
 
-type Props = INote;
-
-export const Note: FC<Props> = ({ title, content, creationDate, id }) => {
+export const Note: FC<INote> = ({ title, content, creationDate, id }) => {
     const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
-    const note = { title, content, creationDate, id };
 
     return (
         <GridItem
@@ -38,7 +35,7 @@ export const Note: FC<Props> = ({ title, content, creationDate, id }) => {
                 justifyContent='space-between'>
                 <NoteCreationDate date={creationDate} />
                 <ButtonGroup>
-                    <EditNoteAction note={note} />
+                    <EditNoteAction noteId={id} />
                     <DeleteNoteAction noteId={id} />
                 </ButtonGroup>
             </Box>

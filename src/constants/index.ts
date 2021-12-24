@@ -1,6 +1,6 @@
-import { IEditorNoteValues } from '../components/Workboard/EditorNoteModal/models';
+import { EditableNoteValues } from '../store/reducers/workboardReducer/models/INote';
 
-export const defaultNoteValues: IEditorNoteValues = {
+export const defaultNoteValues: EditableNoteValues = {
 	title: '',
 	content: '',
 };

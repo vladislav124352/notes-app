@@ -1,19 +1,16 @@
-export interface IEditorNoteValues {
-	title: string;
-	content: string;
-}
+import { EditableNoteValues } from '../../../store/reducers/workboardReducer/models/INote';
 
-export interface INoteEditor {
+export interface IEditorNoteOption {
 	isOpen: boolean;
 	onClose: () => void;
 	isEditNote?: boolean;
 	onSubmit: (...args: any[]) => void;
-	initialValues: IEditorNoteValues;
+	initialValues: EditableNoteValues;
 }
 
 export interface IEditorNoteModal {
 	isOpen: boolean;
 	onClose: () => void;
 	onSubmit: (...args: any[]) => void;
-	initialValues?: IEditorNoteValues;
+	initialValues?: EditableNoteValues;
 }

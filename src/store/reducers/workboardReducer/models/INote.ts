@@ -1,6 +1,8 @@
-export type INote = {
-	id: number;
+export interface EditableNoteValues {
 	title: string;
 	content: string;
+}
+export interface INote extends EditableNoteValues {
+	id: number;
 	creationDate: number;
-};
+}
