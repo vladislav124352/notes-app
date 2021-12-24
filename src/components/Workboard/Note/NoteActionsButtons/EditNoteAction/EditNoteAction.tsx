@@ -40,8 +40,8 @@ export const EditNoteAction: FC<Props> = ({ note }) => {
         </IconButton>
         <EditorNoteModal
             isOpen={isOpen}
-            onClose={onSubmit}
-            onCancel={onClose}
+            onClose={onClose}
+            onSubmit={onSubmit}
             initialValues={{
                 title: note.title,
                 content: note.content

@@ -48,8 +48,8 @@ export const EmptyNote = () => {
             </Button>
             <EditorNoteModal
                 isOpen={isOpen}
-                onClose={onSubmit}
-                onCancel={onClose} />
+                onClose={onClose}
+                onSubmit={onSubmit} />
         </GridItem>
     )
 }
