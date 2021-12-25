@@ -7,8 +7,8 @@ import { NoteModal } from './NoteModal/NoteModal';
 
 export const EditorNoteModal: FC<IEditorNoteModal> = ({
     isOpen,
-    onSubmit,
     onClose,
+    onSubmit,
     initialValues = defaultNoteValues
 }) => {
     const isChangeModalToDrawer = useBreakpointValue({ base: false, md: true });
@@ -18,10 +18,12 @@ export const EditorNoteModal: FC<IEditorNoteModal> = ({
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={onSubmit}
-            initialValues={initialValues} />
+            initialValues={initialValues}
+            isEditNote={!!initialValues.title} />
         : <NoteDrawer
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={onSubmit}
-            initialValues={initialValues} />
+            initialValues={initialValues}
+            isEditNote={!!initialValues.title} />
 }

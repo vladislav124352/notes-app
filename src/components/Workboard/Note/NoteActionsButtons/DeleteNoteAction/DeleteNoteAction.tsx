@@ -12,17 +12,18 @@ interface Props {
 export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
     const dispatch = useAppDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const isShowMobileVersionBreakpount = useBreakpointValue({ base: true, md: false });
     const toast = useToast()
 
     const onSubmit = (event: MouseEvent) => {
         dispatch(deleteNote(noteId))
         onClose()
         toast({
-            title: 'Note deleted',
             status: 'info',
             duration: 2000,
             isClosable: true,
-            position: 'bottom-right'
+            title: 'Note deleted',
+            position: isShowMobileVersionBreakpount ? 'bottom-left' : 'bottom-right'
         })
     }
 

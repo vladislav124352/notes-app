@@ -3,7 +3,7 @@ import { Grid, Container, Box } from '@chakra-ui/layout';
 import { Note } from './Note/Note';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
 import { useBreakpointValue } from '@chakra-ui/react';
-import { EmptyNote } from './EmptyNote/EmptyNote';
+import { CreateNoteButton } from './CreateNoteButton/CreateNoteButton';
 import { fetchNotes } from '../../store/reducers/workboardReducer/ActionCreators';
 import { getNotesSelector } from '../../store/reducers/workboardReducer/selectors/getNotesSelector';
 
@@ -11,6 +11,7 @@ export const Workboard = () => {
     const dispatch = useAppDispatch();
     const notes = useAppSelector(getNotesSelector);
     const isCenterBreakpoint = useBreakpointValue({ base: 'center', lg: 'flex-start' });
+    const mobileVesrionBreakpoint = useBreakpointValue({ base: '160px', md: '50px' })
 
     useEffect(() => {
         dispatch(fetchNotes())
@@ -37,11 +38,11 @@ export const Workboard = () => {
                     width='100%'
                     padding='15px'
                     overflow='auto'
-                    paddingBottom='50px'
+                    paddingBottom={mobileVesrionBreakpoint}
                     justifyItems={isCenterBreakpoint}
                     gridTemplateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
                     {notesComponentList}
-                    <EmptyNote />
+                    <CreateNoteButton />
                 </Grid>
             </Container>
         </Box>

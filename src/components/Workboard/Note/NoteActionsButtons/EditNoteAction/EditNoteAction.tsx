@@ -1,5 +1,5 @@
 import { EditIcon } from '@chakra-ui/icons'
-import { IconButton, useDisclosure, useToast } from '@chakra-ui/react'
+import { IconButton, useBreakpointValue, useDisclosure, useToast } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import { getNoteById } from '../../../../../hooks/api/localStorage/getNoteById'
 import { useAppDispatch } from '../../../../../hooks/redux/redux'
@@ -13,19 +13,20 @@ interface Props {
 
 export const EditNoteAction: FC<Props> = ({ noteId }) => {
     const dispatch = useAppDispatch()
-    const { isOpen, onOpen, onClose } = useDisclosure()
     const { title, content } = getNoteById(noteId);
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const isShowMobileVersionBreakpount = useBreakpointValue({ base: true, md: false });
     const toast = useToast();
 
     const onSubmit = (values: EditableNoteValues) => {
         dispatch(editeNote(noteId, values));
         onClose();
         toast({
-            title: 'Note changed',
             status: 'info',
             duration: 2000,
             isClosable: true,
-            position: 'bottom-right'
+            title: 'Note changed',
+            position: isShowMobileVersionBreakpount ? 'bottom-left' : 'bottom-right'
         })
     }
 
