@@ -7,8 +7,8 @@ import { ControlPanel } from './ControlPanel/ControlPanel';
 
 export const Header = () => {
 	const gridBreakpoint = useBreakpointValue({
-		base: '40px 1fr 90px',
-		lg: '220px 4fr 90px'
+		base: '40px 1fr auto',
+		lg: '220px 4fr auto'
 	});
 
 	return (
