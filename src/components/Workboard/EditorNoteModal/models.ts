@@ -4,13 +4,13 @@ export interface IEditorNoteOption {
 	isOpen: boolean;
 	onClose: () => void;
 	isEditNote?: boolean;
-	onSubmit: (...args: any[]) => void;
+	onSubmit: (values: EditableNoteValues) => void;
 	initialValues: EditableNoteValues;
 }
 
 export interface IEditorNoteModal {
 	isOpen: boolean;
 	onClose: () => void;
-	onSubmit: (...args: any[]) => void;
+	onSubmit: (values: EditableNoteValues) => void;
 	initialValues?: EditableNoteValues;
 }

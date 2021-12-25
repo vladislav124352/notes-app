@@ -8,11 +8,11 @@ import {
     ModalContent,
     ModalOverlay
 } from '@chakra-ui/react'
-import React, { FC } from 'react'
+import React, { FC, MouseEvent } from 'react'
 
 interface Props {
     isOpen: boolean;
-    onDelete: (...args: any[]) => void;
+    onDelete: (event: MouseEvent) => void;
     onCancel: () => void;
 }
 

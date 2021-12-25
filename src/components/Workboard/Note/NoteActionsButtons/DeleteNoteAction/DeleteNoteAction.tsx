@@ -1,6 +1,6 @@
 import { DeleteIcon } from '@chakra-ui/icons'
-import { IconButton, useDisclosure, useToast } from '@chakra-ui/react'
-import React, { FC } from 'react'
+import { IconButton, useBreakpointValue, useDisclosure, useToast } from '@chakra-ui/react'
+import React, { FC, MouseEvent } from 'react'
 import { useAppDispatch } from '../../../../../hooks/redux/redux'
 import { deleteNote } from '../../../../../store/reducers/workboardReducer/ActionCreators'
 import { DeleteNoteModal } from '../../../DeleteNoteModal/DeleteNoteModal'
@@ -14,7 +14,7 @@ export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toast = useToast()
 
-    const onSubmit = () => {
+    const onSubmit = (event: MouseEvent) => {
         dispatch(deleteNote(noteId))
         onClose()
         toast({

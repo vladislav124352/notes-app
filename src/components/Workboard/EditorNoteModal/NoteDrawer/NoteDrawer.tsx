@@ -1,7 +1,7 @@
 import { Box, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerOverlay } from '@chakra-ui/react'
 import { Formik } from 'formik'
 import { SubmitButton } from 'formik-chakra-ui'
-import React, { FC } from 'react'
+import React, { FC, FormEventHandler } from 'react'
 import { ContentTextarea } from '../ContentTextarea/ContentTextarea'
 import { IEditorNoteOption } from '../models'
 import { TitleTextarea } from '../TitleTextarea/TitleTextarea'
@@ -15,7 +15,7 @@ export const NoteDrawer: FC<IEditorNoteOption> = ({ isOpen, onClose, onSubmit, i
             <DrawerContent >
                 <Formik initialValues={initialValues} onSubmit={onSubmit}>
                     {({ handleSubmit, values }) => (
-                        <Box as='form' onSubmit={handleSubmit as any}>
+                        <Box as='form' onSubmit={handleSubmit as FormEventHandler}>
                             <DrawerBody>
                                 <TitleTextarea />
                                 <ContentTextarea />
