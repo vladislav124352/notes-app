@@ -23,7 +23,8 @@ export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
             duration: 2000,
             isClosable: true,
             title: 'Note deleted',
-            position: isShowMobileVersionBreakpount ? 'bottom-left' : 'bottom-right'
+            position: isShowMobileVersionBreakpount
+                ? 'bottom-left' : 'bottom-right'
         })
     }
 

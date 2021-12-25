@@ -10,9 +10,11 @@ export const ControlPanel = () => {
         <GridItem>
             <ButtonGroup>
                 <IconButton
+                    boxShadow='sm'
                     aria-label='Open settings'
                     icon={<SettingsIcon />} />
                 <IconButton
+                    boxShadow='sm'
                     aria-label='Open fallback'
                     icon={<Icon />} />
             </ButtonGroup>

@@ -25,8 +25,8 @@ export const SearchPanel = () => {
                     children={<SearchIcon color='gray.400' />} />
                 <Input
                     value={value}
+                    boxShadow='base'
                     variant='filled'
-                    marginRight='8px'
                     aria-label='Search for notes'
                     onChange={onChangeSearchInput}
                     placeholder='Search for notes ...' />

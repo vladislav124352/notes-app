@@ -26,7 +26,8 @@ export const EditNoteAction: FC<Props> = ({ noteId }) => {
             duration: 2000,
             isClosable: true,
             title: 'Note changed',
-            position: isShowMobileVersionBreakpount ? 'bottom-left' : 'bottom-right'
+            position: isShowMobileVersionBreakpount
+                ? 'bottom-left' : 'bottom-right'
         })
     }
 

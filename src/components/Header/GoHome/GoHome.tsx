@@ -9,10 +9,7 @@ export const GoHome = () => {
 
     return isCollapseBreakpoint
         ? <Link href='/' aria-label='Go home' borderRadius='full'>
-            <Image
-                boxSize='40px'
-                src={NotesAppIcon}
-                alt='Notes app logo' />
+            <Image boxSize='40px' src={NotesAppIcon} alt='Notes app logo' />
         </Link>
 
         : <LinkBox rounded='md'>
