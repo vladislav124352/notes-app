@@ -20,10 +20,11 @@ export const CreateNoteMobile: FC<Props> = ({ onClick }) => {
         <GridItem>
             <IconButton
                 isRound
-                width='80px'
-                right='50px'
-                bottom='40px'
-                height='80px'
+                width='60px'
+                right='30px'
+                bottom='30px'
+                zIndex={1000}
+                height='60px'
                 boxShadow='lg'
                 variant='solid'
                 onClick={onOpen}

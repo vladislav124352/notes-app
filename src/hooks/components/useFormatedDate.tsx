@@ -15,7 +15,7 @@ export function useFormatedDate(milleseconds: number) {
         && currentMonth === creationMonth
         && currentYear === creationYear;
 
-    if (isToday) return `Today (${currentDate})`;
-    else if (isEsterday) return `Yesterday (${creationDate})`;
+    if (isToday) return `Today`;
+    else if (isEsterday) return `Yesterday`;
     else return creationDate;
 }

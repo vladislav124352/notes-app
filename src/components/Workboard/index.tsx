@@ -31,7 +31,7 @@ export const Workboard = () => {
             width='100%'
             overflow='auto'
             bgColor='#dde2e6'>
-            <Container maxW='container.xl'>
+            <Container maxWidth='container.xl'>
                 <Grid
                     as='ul'
                     gap='15px'

@@ -24,7 +24,7 @@ export const GoHome = () => {
                             as='h1'
                             height='100%'
                             fontSize='26px'>
-                            Best Notes
+                            BestNotes
                         </Heading>
                     </LinkOverlay>
                 </Box>
