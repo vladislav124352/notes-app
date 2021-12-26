@@ -1,8 +1,8 @@
-export interface EditableNoteValues {
+export interface INote {
+	id: number;
+	creationDate: number;
 	title: string;
 	content: string;
 }
-export interface INote extends EditableNoteValues {
-	id: number;
-	creationDate: number;
-}
+
+export type EditableNoteValues = Omit<INote, 'id' | 'creationDate'>;
