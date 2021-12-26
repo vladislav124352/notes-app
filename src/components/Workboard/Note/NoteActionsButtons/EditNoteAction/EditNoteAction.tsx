@@ -1,7 +1,8 @@
 import { EditIcon } from '@chakra-ui/icons'
-import { IconButton, useBreakpointValue, useDisclosure, useToast } from '@chakra-ui/react'
+import { IconButton, useDisclosure } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import { getNoteById } from '../../../../../hooks/api/localStorage/getNoteById'
+import { useNotify } from '../../../../../hooks/components/useNotify'
 import { useAppDispatch } from '../../../../../hooks/redux/redux'
 import { editeNote } from '../../../../../store/reducers/workboardReducer/ActionCreators'
 import { EditableNoteValues } from '../../../../../store/reducers/workboardReducer/models/INote'
@@ -15,20 +16,12 @@ export const EditNoteAction: FC<Props> = ({ noteId }) => {
     const dispatch = useAppDispatch()
     const { title, content } = getNoteById(noteId);
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const isShowMobileVersionBreakpount = useBreakpointValue({ base: true, md: false });
-    const toast = useToast();
+    const notify = useNotify('edit')
 
     const onSubmit = (values: EditableNoteValues) => {
         dispatch(editeNote(noteId, values));
         onClose();
-        toast({
-            status: 'info',
-            duration: 2000,
-            isClosable: true,
-            title: 'Note changed',
-            position: isShowMobileVersionBreakpount
-                ? 'bottom-left' : 'bottom-right'
-        })
+        notify();
     }
 
     return <>

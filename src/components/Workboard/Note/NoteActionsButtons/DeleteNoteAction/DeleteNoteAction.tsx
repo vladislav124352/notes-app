@@ -1,6 +1,7 @@
 import { DeleteIcon } from '@chakra-ui/icons'
-import { IconButton, useBreakpointValue, useDisclosure, useToast } from '@chakra-ui/react'
+import { IconButton, useDisclosure } from '@chakra-ui/react'
 import React, { FC, MouseEvent } from 'react'
+import { useNotify } from '../../../../../hooks/components/useNotify'
 import { useAppDispatch } from '../../../../../hooks/redux/redux'
 import { deleteNote } from '../../../../../store/reducers/workboardReducer/ActionCreators'
 import { DeleteNoteModal } from '../../../DeleteNoteModal/DeleteNoteModal'
@@ -12,20 +13,12 @@ interface Props {
 export const DeleteNoteAction: FC<Props> = ({ noteId }) => {
     const dispatch = useAppDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const isShowMobileVersionBreakpount = useBreakpointValue({ base: true, md: false });
-    const toast = useToast()
+    const notify = useNotify('delete')
 
     const onSubmit = (event: MouseEvent) => {
         dispatch(deleteNote(noteId))
         onClose()
-        toast({
-            status: 'info',
-            duration: 2000,
-            isClosable: true,
-            title: 'Note deleted',
-            position: isShowMobileVersionBreakpount
-                ? 'bottom-left' : 'bottom-right'
-        })
+        notify();
     }
 
     return <>
