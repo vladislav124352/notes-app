@@ -8,7 +8,7 @@ import { NoteCreationDate } from './NoteCreationDate/NoteCreationDate';
 import { NoteTitle } from './NoteTitle/NoteTitle';
 
 export const Note: FC<INote> = ({ title, content, creationDate, id }) => {
-    const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
+    const maxWidth = useBreakpointValue({ base: '100%', md: '280px' });
 
     return (
         <GridItem
@@ -20,10 +20,10 @@ export const Note: FC<INote> = ({ title, content, creationDate, id }) => {
             boxShadow='base'
             bgColor='#ffffff'
             borderRadius='md'
+            maxWidth={maxWidth}
             flexDirection='column'
             alignItems='flex-start'
-            justifyContent='space-between'
-            maxWidth={maxWidthBreakpoint}>
+            justifyContent='space-between'>
             <Box maxWidth='100%'>
                 <NoteTitle title={title} />
                 <NoteContent content={content} />

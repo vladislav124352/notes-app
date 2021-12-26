@@ -10,8 +10,8 @@ import { getNotesSelector } from '../../store/reducers/workboardReducer/selector
 export const Workboard = () => {
     const dispatch = useAppDispatch();
     const notes = useAppSelector(getNotesSelector);
-    const isCenterBreakpoint = useBreakpointValue({ base: 'center', lg: 'flex-start' });
-    const mobileVesrionBreakpoint = useBreakpointValue({ base: '160px', md: '50px' })
+    const justifyItems = useBreakpointValue({ base: 'center', lg: 'flex-start' });
+    const paddingBottom = useBreakpointValue({ base: '160px', md: '50px' })
 
     useEffect(() => {
         dispatch(fetchNotes())
@@ -38,8 +38,8 @@ export const Workboard = () => {
                     width='100%'
                     padding='15px'
                     overflow='auto'
-                    paddingBottom={mobileVesrionBreakpoint}
-                    justifyItems={isCenterBreakpoint}
+                    paddingBottom={paddingBottom}
+                    justifyItems={justifyItems}
                     gridTemplateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
                     {notesComponentList}
                     <CreateNoteButton />

@@ -10,7 +10,7 @@ interface Props {
 
 export const CreateNoteDesktop: FC<Props> = ({ onClick }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const maxWidthBreakpoint = useBreakpointValue({ base: '100%', md: '280px' });
+    const maxWidth = useBreakpointValue({ base: '100%', md: '280px' });
 
     const onSubmit = (values: EditableNoteValues) => {
         onClick(values);
@@ -22,7 +22,7 @@ export const CreateNoteDesktop: FC<Props> = ({ onClick }) => {
             width='100%'
             height='280px'
             borderRadius='md'
-            maxWidth={maxWidthBreakpoint}
+            maxWidth={maxWidth}
             bgColor='rgb(237, 242, 247)'>
             <Button
                 width='100%'

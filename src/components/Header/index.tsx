@@ -6,7 +6,7 @@ import { SearchPanel } from './SearchPanel/SearchPanel';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 
 export const Header = () => {
-	const gridBreakpoint = useBreakpointValue({
+	const templateColumns = useBreakpointValue({
 		base: '40px 1fr auto',
 		lg: '220px 4fr auto'
 	});
@@ -21,7 +21,7 @@ export const Header = () => {
 			paddingY='10px'
 			position='fixed'
 			bgColor='#ffffff'
-			templateColumns={gridBreakpoint}>
+			templateColumns={templateColumns}>
 			<GoHome />
 			<SearchPanel />
 			<ControlPanel />

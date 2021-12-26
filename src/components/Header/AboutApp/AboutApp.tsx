@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const AboutApp: FC<Props> = ({ isOpen, onClose }) => {
-    const headFontSizeBreakpoint = useBreakpointValue({ base: '18px', md: '24px' })
+    const headFontSize = useBreakpointValue({ base: '18px', md: '24px' })
 
     const VladLink = <Link
         bgColor='cyan.50' padding='2px 5px 6px 5px'
@@ -90,7 +90,7 @@ export const AboutApp: FC<Props> = ({ isOpen, onClose }) => {
             <DrawerContent>
                 <DrawerCloseButton />
                 <DrawerHeader>
-                    <Heading fontSize={headFontSizeBreakpoint}>
+                    <Heading fontSize={headFontSize}>
                         What's this app?
                     </Heading>
                 </DrawerHeader>

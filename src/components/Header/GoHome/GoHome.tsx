@@ -5,9 +5,9 @@ import { Image } from '@chakra-ui/image';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 
 export const GoHome = () => {
-    const isCollapseBreakpoint = useBreakpointValue({ base: true, lg: false })
+    const isCollapseGoHome = useBreakpointValue({ base: true, lg: false })
 
-    return isCollapseBreakpoint
+    return isCollapseGoHome
         ? <Link href='/' aria-label='Go home' borderRadius='full'>
             <Image boxSize='40px' src={NotesAppIcon} alt='Notes app logo' />
         </Link>
