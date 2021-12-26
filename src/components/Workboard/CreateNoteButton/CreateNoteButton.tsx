@@ -1,6 +1,6 @@
 import { useBreakpointValue } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../hooks/redux/redux';
-import { generateRandomId } from '../../../hooks/tools/generateRandomId';
+import { generateRandomId } from '../../../tools/generateRandomId';
 import { createNote } from '../../../store/reducers/workboardReducer/ActionCreators';
 import { CreateNoteMobile } from './CreateNoteMobile/CreateNoteMobile';
 import { CreateNoteDesktop } from './CreateNoteDesktop/CreateNoteDesktop';
