@@ -3,7 +3,7 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/input'
 import { GridItem } from '@chakra-ui/react';
 import React, { ChangeEvent, useState } from 'react'
 import { useAppDispatch } from '../../../hooks/redux/redux';
-import { fetchNotes } from '../../../store/reducers/workboardReducer/ActionCreators';
+import { fetchNotesByName } from '../../../store/reducers/workboardReducer/ActionCreators';
 
 export const SearchPanel = () => {
     const [value, setValue] = useState<string>('');
@@ -11,7 +11,7 @@ export const SearchPanel = () => {
 
     const onChangeSearchInput = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
-        dispatch(fetchNotes(event.target.value));
+        dispatch(fetchNotesByName(event.target.value));
     }
 
     return (

@@ -3,13 +3,22 @@ import { AppDispatch } from '../../store';
 import { EditableNoteValues, INote } from './models/INote';
 import { workboardReducer } from './reducer';
 
-export const fetchNotes = (fetchParameter?: string) => {
+export const fetchNotes = () => {
+	return async (dispatch: AppDispatch) => {
+		const request = localStorage.getItem('notes');
+		if (request) {
+			let notes: INote[] = JSON.parse(request);
+			dispatch(workboardReducer.actions.notesFetchingSuccess(notes));
+		}
+	};
+};
+
+export const fetchNotesByName = (fetchParameter: string) => {
 	return async (dispatch: AppDispatch) => {
 		const request = localStorage.getItem('notes');
 		if (request) {
 			let notes: INote[] = JSON.parse(request);
 
-			// TODO: вынести в отдельную функцию fetchNotesByName
 			if (fetchParameter) {
 				const loweredFetchParameter = fetchParameter.toLocaleLowerCase();
 				const newNotes = notes.filter((note) => {
