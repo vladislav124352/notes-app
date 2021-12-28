@@ -1,4 +1,4 @@
-import { Box, Button, Center, Grid, Heading, Text } from '@chakra-ui/react'
+import { Box, Center, Heading } from '@chakra-ui/react'
 import React from 'react'
 import { FaArrowRight, FaCommentSlash, FaRegSadCry, FaSearch } from 'react-icons/fa'
 

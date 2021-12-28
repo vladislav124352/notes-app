@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from '@chakra-ui/layout';
-import { useBreakpointValue, Text } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/react';
 import { DragEvent, useEffect, useState } from 'react';
 import { defaultNoteObject } from '../../constants';
 import { getNoteById } from '../../hooks/api/localStorage/getNoteById';
