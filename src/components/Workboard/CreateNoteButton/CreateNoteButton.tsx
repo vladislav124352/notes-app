@@ -6,6 +6,7 @@ import { CreateNoteMobile } from './CreateNoteMobile/CreateNoteMobile';
 import { CreateNoteDesktop } from './CreateNoteDesktop/CreateNoteDesktop';
 import { EditableNoteValues } from '../../../store/reducers/workboardReducer/models/INote';
 import { useNotify } from '../../../hooks/components/useNotify';
+import { setNoteOrder } from '../../../hooks/api/localStorage/setNoteOrder';
 
 export const CreateNoteButton = () => {
     const dispatch = useAppDispatch()
@@ -16,6 +17,7 @@ export const CreateNoteButton = () => {
         dispatch(createNote({
             id: generateRandomId(),
             creationDate: Date.now(),
+            order: setNoteOrder(),
             ...values
         }));
         notify()

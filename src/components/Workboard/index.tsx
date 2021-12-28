@@ -1,29 +1,61 @@
-import { useEffect } from 'react'
-import { Grid, Container, Box } from '@chakra-ui/layout';
-import { Note } from './Note/Note';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
+import { Box, Container, Grid } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/react';
-import { CreateNoteButton } from './CreateNoteButton/CreateNoteButton';
-import { fetchNotes } from '../../store/reducers/workboardReducer/ActionCreators';
+import { DragEvent, useEffect, useState } from 'react';
+import { defaultNoteObject } from '../../constants';
+import { getNoteById } from '../../hooks/api/localStorage/getNoteById';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
+import { dragNote, fetchNotes } from '../../store/reducers/workboardReducer/ActionCreators';
+import { INote } from '../../store/reducers/workboardReducer/models/INote';
 import { getNotesSelector } from '../../store/reducers/workboardReducer/selectors/getNotesSelector';
+import { CreateNoteButton } from './CreateNoteButton/CreateNoteButton';
+import { Note } from './Note/Note';
 
 export const Workboard = () => {
     const dispatch = useAppDispatch();
     const notes = useAppSelector(getNotesSelector);
-    const justifyItems = useBreakpointValue({ base: 'center', lg: 'flex-start' });
+    const [selectedDraggableNote, setSelectedDraggableNote] = useState<INote>(defaultNoteObject);
     const paddingBottom = useBreakpointValue({ base: '160px', md: '50px' })
+    const justifyItems = useBreakpointValue({ base: 'center', lg: 'flex-start' });
 
     useEffect(() => {
         dispatch(fetchNotes())
     }, [dispatch])
+
+    const dropHandler = (event: DragEvent<HTMLDivElement>, id: number) => {
+        event.preventDefault()
+        const target = event.target as HTMLDivElement;
+        target.style.border = 'none'
+        const note = getNoteById(id);
+        dispatch(dragNote(selectedDraggableNote, note))
+    }
+
+    const gragStartHandler = (event: DragEvent<HTMLDivElement>, id: number) => {
+        const note = getNoteById(id);
+        setSelectedDraggableNote(note)
+    }
+
+    const dragEndHandler = (event: DragEvent<HTMLDivElement>) => {
+        const target = event.target as HTMLDivElement;
+        target.style.border = 'none'
+    }
+
+    const dragOverHandler = (event: DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        const target = event.target as HTMLDivElement;
+        target.style.border = '2px solid #b7bbd8'
+    }
 
     const notesComponentList = notes.map(({ title, content, creationDate, id }) => {
         return <Note
             id={id}
             title={title}
             content={content}
+            drop={dropHandler}
             key={`Note#_${id}`}
-            creationDate={creationDate} />
+            dragEnd={dragEndHandler}
+            dragOver={dragOverHandler}
+            creationDate={creationDate}
+            dragStart={gragStartHandler} />
     })
 
     return (

@@ -9,6 +9,7 @@ export const fetchNotes = (fetchParameter?: string) => {
 		if (request) {
 			let notes: INote[] = JSON.parse(request);
 
+			// TODO: вынести в отдельную функцию fetchNotesByName
 			if (fetchParameter) {
 				const loweredFetchParameter = fetchParameter.toLocaleLowerCase();
 				const newNotes = notes.filter((note) => {
@@ -65,8 +66,31 @@ export const editeNote = (id: number, changes: EditableNoteValues) => {
 			const note = getNoteById(id);
 			const newNote = { ...note, ...changes };
 			const newNotes = notes.map((note) => (note.id === newNote.id ? newNote : note));
-			const resultArray = JSON.stringify(newNotes);
-			localStorage.setItem('notes', resultArray);
+			const result = JSON.stringify(newNotes);
+			localStorage.setItem('notes', result);
+			dispatch(fetchNotes());
+		}
+	};
+};
+
+export const dragNote = (selectedNote: INote, changedNote: INote) => {
+	return (dispatch: AppDispatch) => {
+		if (selectedNote.order === changedNote.order) return false;
+
+		const request = localStorage.getItem('notes');
+
+		if (request) {
+			const notes: INote[] = JSON.parse(request);
+
+			const changedNotes = notes.map((note) => {
+				if (note.id === changedNote.id) return { ...note, order: selectedNote.order };
+				if (note.id === selectedNote.id) return { ...note, order: changedNote.order };
+				return note;
+			});
+
+			const sortedNotes = [...changedNotes].sort((a, b) => a.order - b.order);
+			const result = JSON.stringify(sortedNotes);
+			localStorage.setItem('notes', result);
 			dispatch(fetchNotes());
 		}
 	};
