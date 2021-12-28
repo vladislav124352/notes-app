@@ -15,21 +15,25 @@ export const fetchNotes = () => {
 
 export const fetchNotesByName = (fetchParameter: string) => {
 	return async (dispatch: AppDispatch) => {
+		if (!fetchParameter) {
+			dispatch(fetchNotes());
+			return 0;
+		}
+
 		const request = localStorage.getItem('notes');
 		if (request) {
 			let notes: INote[] = JSON.parse(request);
+			const loweredFetchParameter = fetchParameter.toLocaleLowerCase();
 
-			if (fetchParameter) {
-				const loweredFetchParameter = fetchParameter.toLocaleLowerCase();
-				const newNotes = notes.filter((note) => {
-					const loweredNoteTitle = note.title.toLocaleLowerCase();
-					const loweredNoteContent = note.content.toLocaleLowerCase();
-					const includesOfNoteTitle = loweredNoteTitle.includes(loweredFetchParameter);
-					const includesOfNoteContent = loweredNoteContent.includes(loweredFetchParameter);
-					return includesOfNoteTitle || includesOfNoteContent;
-				});
-				notes = newNotes;
-			}
+			const newNotes = notes.filter((note) => {
+				const loweredNoteTitle = note.title.toLocaleLowerCase();
+				const loweredNoteContent = note.content.toLocaleLowerCase();
+				const includesOfNoteTitle = loweredNoteTitle.includes(loweredFetchParameter);
+				const includesOfNoteContent = loweredNoteContent.includes(loweredFetchParameter);
+				return includesOfNoteTitle || includesOfNoteContent;
+			});
+
+			notes = newNotes;
 
 			if (!notes.length) dispatch(workboardReducer.actions.noNotesFound());
 			else dispatch(workboardReducer.actions.notesFetchingSuccess(notes));
@@ -85,7 +89,7 @@ export const editeNote = (id: number, changes: EditableNoteValues) => {
 
 export const dragNote = (selectedNote: INote, changedNote: INote) => {
 	return (dispatch: AppDispatch) => {
-		if (selectedNote.order === changedNote.order) return false;
+		if (selectedNote.order === changedNote.order) return 0;
 
 		const request = localStorage.getItem('notes');
 
