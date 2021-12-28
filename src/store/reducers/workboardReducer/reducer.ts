@@ -4,6 +4,7 @@ import { WorkboardState } from './models/Workboard';
 
 const initialState: WorkboardState = {
 	notes: [],
+	isNotesFound: true,
 	errorMessage: '',
 };
 
@@ -13,10 +14,15 @@ export const workboardReducer = createSlice({
 	reducers: {
 		notesFetchingSuccess(state, action: PayloadAction<INote[]>) {
 			state.errorMessage = '';
+			state.isNotesFound = true;
 			state.notes = action.payload;
 		},
 		notesFetchingError(state, action: PayloadAction<string>) {
 			state.errorMessage = action.payload;
+		},
+		noNotesFound(state) {
+			state.notes = [];
+			state.isNotesFound = false;
 		},
 	},
 });

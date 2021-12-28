@@ -1,18 +1,20 @@
 import { Box, Container, Grid } from '@chakra-ui/layout';
-import { useBreakpointValue } from '@chakra-ui/react';
+import { useBreakpointValue, Text } from '@chakra-ui/react';
 import { DragEvent, useEffect, useState } from 'react';
 import { defaultNoteObject } from '../../constants';
 import { getNoteById } from '../../hooks/api/localStorage/getNoteById';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux/redux';
 import { dragNote, fetchNotes } from '../../store/reducers/workboardReducer/ActionCreators';
 import { INote } from '../../store/reducers/workboardReducer/models/INote';
-import { getNotesSelector } from '../../store/reducers/workboardReducer/selectors/getNotesSelector';
+import { getIsNotesFoundSelector, getNotesSelector } from '../../store/reducers/workboardReducer/selectors';
 import { CreateNoteButton } from './CreateNoteButton/CreateNoteButton';
 import { Note } from './Note/Note';
+import { NothingFound } from './NothingFound/NothingFound';
 
 export const Workboard = () => {
     const dispatch = useAppDispatch();
     const notes = useAppSelector(getNotesSelector);
+    const isNotesFound = useAppSelector(getIsNotesFoundSelector)
     const [selectedDraggableNote, setSelectedDraggableNote] = useState<INote>(defaultNoteObject);
     const paddingBottom = useBreakpointValue({ base: '160px', md: '50px' })
     const justifyItems = useBreakpointValue({ base: 'center', lg: 'flex-start' });
@@ -64,18 +66,21 @@ export const Workboard = () => {
             overflow='auto'
             bgColor='#dde2e6'>
             <Container maxWidth='container.xl'>
-                <Grid
-                    as='ul'
-                    gap='15px'
-                    width='100%'
-                    padding='15px'
-                    overflow='auto'
-                    paddingBottom={paddingBottom}
-                    justifyItems={justifyItems}
-                    gridTemplateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
-                    {notesComponentList}
-                    <CreateNoteButton />
-                </Grid>
+                {isNotesFound
+                    ? <Grid
+                        as='ul'
+                        gap='15px'
+                        width='100%'
+                        padding='15px'
+                        overflow='auto'
+                        paddingBottom={paddingBottom}
+                        justifyItems={justifyItems}
+                        gridTemplateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
+                        {notesComponentList}
+                        <CreateNoteButton />
+                    </Grid>
+                    : <NothingFound />
+                }
             </Container>
         </Box>
     )

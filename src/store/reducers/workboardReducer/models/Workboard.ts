@@ -1,6 +1,7 @@
-import { INote } from "./INote";
+import { INote } from './INote';
 
 export interface WorkboardState {
-    notes: INote[];
-    errorMessage: string;
+	notes: INote[];
+	isNotesFound: boolean;
+	errorMessage: string;
 }

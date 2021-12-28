@@ -31,7 +31,8 @@ export const fetchNotesByName = (fetchParameter: string) => {
 				notes = newNotes;
 			}
 
-			dispatch(workboardReducer.actions.notesFetchingSuccess(notes));
+			if (!notes.length) dispatch(workboardReducer.actions.noNotesFound());
+			else dispatch(workboardReducer.actions.notesFetchingSuccess(notes));
 		}
 	};
 };
