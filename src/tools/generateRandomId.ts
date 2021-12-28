@@ -1,3 +1,3 @@
 export function generateRandomId() {
-	return (Date.now() * 2) / (Math.random() * 100);
+	return Math.ceil((Date.now() * 2) / (Math.random() * 1000000000));
 }
