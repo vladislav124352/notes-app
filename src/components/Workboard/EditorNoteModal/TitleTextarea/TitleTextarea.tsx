@@ -15,6 +15,7 @@ export const TitleTextarea = () => {
                 resize: 'none',
                 fontSize: '24px',
                 overflow: 'hidden',
+                marginBottom: '5px',
                 variant: 'outlined',
                 onInput: autoResize,
                 placeholder: 'Title ...'

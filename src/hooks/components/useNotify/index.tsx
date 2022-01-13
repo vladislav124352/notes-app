@@ -8,7 +8,10 @@ export const useNotify = (notifyType: notifyTypes) => {
     const toast = useToast();
 
     const defaultOptions: UseToastOptions = {
-        duration: 2000,
+        duration: 200000,
+        containerStyle: {
+            zIndex: 1400
+        },
         position: isShowMobileVersion
             ? 'bottom-left'
             : 'bottom-right',

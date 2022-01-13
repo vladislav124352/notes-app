@@ -6,6 +6,7 @@ import App from './App';
 import { store } from './store/store';
 import theme from './theme';
 import '@fontsource/inter';
+import './index.css'
 
 const AppComponent = () => {
 	return (
