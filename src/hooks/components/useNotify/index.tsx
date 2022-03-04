@@ -8,7 +8,7 @@ export const useNotify = (notifyType: notifyTypes) => {
     const toast = useToast();
 
     const defaultOptions: UseToastOptions = {
-        duration: 200000,
+        duration: 2000,
         containerStyle: {
             zIndex: 1400
         },
